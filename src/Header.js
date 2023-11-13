@@ -2,6 +2,25 @@ import React from 'react'
 import './Header.css';
 
 const Header = ({allhouses}) => {
+    let countries = []
+    if(allhouses){
+    //  for (let house of allhouses ){
+    //     countries.push(house.country);
+
+    //  }
+     
+
+    //  countries = new Set(countries)
+
+    //  countries = Array.from(countries)
+    //  console.log(countries);
+
+    countries = Array.from(new Set(allhouses.map(
+        (house) => {
+            return house.country
+        })));
+        console.log(countries);
+    }
   return (
     <>
     <div className='HeaderContent'>
@@ -27,10 +46,8 @@ const Header = ({allhouses}) => {
             <label>
                 <p> Look for your dream house in country</p>
             </label>
-            <select>
-                <option>The Netherland</option>
-                <option>The Netherland</option>
-                <option>The Netherland</option>
+            <select className='select_container'>
+                {countries.map((country) => <option key={country} value={country}>{country}</option>)}
             </select>
         </div>
     </div>

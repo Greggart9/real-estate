@@ -8,18 +8,19 @@ function App(params) {
 
     useEffect(()=>{
 
-    fetch('/house.json')
-    .then((data) => data.json())
-    .then((json => {
-        setAllHouses(json);
-        console.log(allhouses);
-    }))
+        fetch('/houses.json')
+        .then((data) => data.json())
+        .then((json) => {
+            setAllHouses(json);
+            console.log(allhouses);
+        })
+    }, [])
 
     return <>
     <Header allhouses={allhouses}/>
     <Feature allhouses={allhouses}/>
     </>
-    })
+    
     
 }
 

@@ -1,0 +1,39 @@
+.country h4{
+    margin: 0;
+    margin-top: 10px;
+}
+
+.address h2{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.left_right{
+    display: flex;
+}
+
+.left{
+    flex: 1.4;
+}
+
+.images img{
+    margin: 0;
+    margin-top: 5px;
+    width: 90%;
+}
+
+.right{
+    flex: 1;
+}
+.price p {
+    margin: 0%;
+    color:  rgb(235, 153, 81); 
+}
+
+.description p{
+    font-size: 0.9rem;
+
+}
+.icon img{
+    width: 50px;
+}
