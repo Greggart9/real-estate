@@ -1,26 +1,21 @@
 import React from 'react'
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({allhouses}) => {
+    const navigate = useNavigate()
     let countries = []
     if(allhouses){
-    //  for (let house of allhouses ){
-    //     countries.push(house.country);
-
-    //  }
-     
-
-    //  countries = new Set(countries)
-
-    //  countries = Array.from(countries)
-    //  console.log(countries);
-
+        
     countries = Array.from(new Set(allhouses.map(
         (house) => {
             return house.country
         })));
-        console.log(countries);
     }
+    const handleChange = (e) =>{
+        navigate(`/Return/${e.target.value}`);
+       }
+       countries.unshift(null)
   return (
     <>
     <div className='HeaderContent'>
@@ -46,7 +41,7 @@ const Header = ({allhouses}) => {
             <label>
                 <p> Look for your dream house in country</p>
             </label>
-            <select className='select_container'>
+            <select onChange={handleChange} className='select_container'>
                 {countries.map((country) => <option key={country} value={country}>{country}</option>)}
             </select>
         </div>

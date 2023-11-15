@@ -14,17 +14,7 @@ const Feature = ({allhouses}) => {
     return {}
 
   }, [allhouses]);
-
-  // let feature = {}  
-  // if (allhouses.length){
-  //   const randNum = Math.floor(Math.random() * (allhouses.length - 1), [allhouses])
-
-  //   feature = allhouses[randNum]
-  // }
-
-
-    
-
+  
   return (
     <>
     <div className='feature_house'>

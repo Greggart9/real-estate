@@ -2,6 +2,8 @@ import './App.css';
 import Header from './Header'
 import Feature from './Feature'
 import { useEffect, useState } from 'react';
+import { BrowserRouter, Routes,Route} from 'react-router-dom';
+import Return from './Return'
 
 function App(params) {
     let [allhouses, setAllHouses] = useState([]);
@@ -17,8 +19,16 @@ function App(params) {
     }, [])
 
     return <>
+    <BrowserRouter>
     <Header allhouses={allhouses}/>
-    <Feature allhouses={allhouses}/>
+       <Routes>
+           <Route path='/' element={ <Feature allhouses={allhouses}/>}/>
+           <Route path='/Return/:country' element={<Return allhouses={allhouses}/>}/>
+           <Route path='/Feature/: house' element={<} />
+            
+           
+       </Routes>
+    </BrowserRouter>
     </>
     
     

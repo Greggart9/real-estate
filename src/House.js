@@ -1,14 +1,19 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import './House.css'; 
 
 
 const House = ({house}) => {
+  const iconref = useRef()
+  const[showform, setShowform] = useState(false);
   
+        const handleClick = () => {
+          setShowform(!showform)
 
-      const handleClick = () => {
-        // Your event handling logic here
-        document.getElementsByClassName('Form01').style.display = 'block';
-      };
+          document.addEventListener('click', (e) =>{
+            if (e.target !== iconref.current)
+            setShowform(false)
+          })
+        }
 
 
 
@@ -42,19 +47,27 @@ const House = ({house}) => {
         </div>
 
         <div className='icon'>
-           <img onClick={handleClick} src={`/images/mail.png`} alt=''/>
+           <img ref={iconref} onClick= {handleClick} src={`/images/mail.png`} alt=''/>
         </div>
 
-        <div className='Form01'>
+        {showform && ( <div className='Form01'>
             <div className='form_content'>
               <form>
-                <input type='text' placeholder='Name' id='Name'/> <br/>
+                <label for='name'>Name</label>
+                <input type='text' placeholder='Name' id='Name'/> 
+
+                <label for='Email'>Email address</label>
                 <input type='email' placeholder='Email' id='Email' />
+
+                <label for='remark'>Remarks</label>
+                <input type='textarea'/>
+
+                <button type='submit'>Submit</button>
 
               </form>
             </div>
 
-        </div>
+        </div>)}
 
         </div>
       </div>
