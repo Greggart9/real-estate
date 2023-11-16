@@ -4,6 +4,7 @@ import Feature from './Feature'
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes,Route} from 'react-router-dom';
 import Return from './Return'
+import HouseQuery from './HouseQuery';
 
 function App(params) {
     let [allhouses, setAllHouses] = useState([]);
@@ -24,7 +25,7 @@ function App(params) {
        <Routes>
            <Route path='/' element={ <Feature allhouses={allhouses}/>}/>
            <Route path='/Return/:country' element={<Return allhouses={allhouses}/>}/>
-           <Route path='/Feature/: house' element={<} />
+           <Route path='/HouseQuery/:id' element={<HouseQuery allhouses={allhouses}/>}/>
             
            
        </Routes>
